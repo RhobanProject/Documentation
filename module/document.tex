@@ -1,0 +1,192 @@
+%%This is a very basic article template.
+%%There is just one section and two subsections.
+
+\documentclass[a4paper]{article}
+
+
+\newcommand{\rhoban}{\emph{Rhoban}\ }
+\newcommand{\rhobanp}{\emph{Rhoban ARM9 Plateform}\ }
+\newcommand{\version}{20101220\ }
+
+\newcommand{\instruction}[1]{{\tt #1}}
+
+
+\newcommand{\file}[1]{\emph{#1}}
+
+\title{Using the \rhobanp}
+
+\author{Hugo Gimbert \and Olivier Ly}
+
+\begin{document}
+\maketitle
+
+\section{Introduction}
+
+The \rhobanp is a set of tools which provide an easy way to
+quickly design and control robotic prototypes.
+The \rhobanp is suitable for prototypes driven by AT91
+micro-controllers running Linux.
+
+\subsection{Features}
+
+The main feature of the \rhobanp is to
+provide easy access to and control of devices physically connected to the
+AT91 micro-controller. In particular, the \rhobanp allows:
+\begin{itemize}
+  \item controlling generic digital output signals,
+  \item sampling digital input signals,
+  \item controlling servos and motors via pwm signals,
+  \item controlling Dynamixel servos,
+  \item sampling analog sensors,
+  \item sampling I2C sensors,
+  \item controlling cameras,
+  \item controlling I2C and serial devices,
+  \item etc\ldots
+\end{itemize}
+
+\subsection{Content}
+
+The \rhobanp consists in:
+\begin{itemize}
+  \item a module which takes care of control and communication with
+  the physical devices connected to an AT91 micro-controller,
+   \item a C API which allows easy access to the devices from userland,
+   \item a tool chain to compile C/C++ embedded programs,
+   \item documentation,
+   \item technical support from the \rhoban team ;-).
+\end{itemize}
+
+
+\subsection{License}
+
+The \rhobanp was developped by Hugo Gimbert and Olivier Ly
+and is the property of its developpers.
+
+Although the \rhobanp is proprietary software, it can be used
+freely for recreational and educational purposes.
+
+Any commercial use is disallowed unless and end-user license agreement
+has been granted to the user for this particular use.
+
+\section{Quick Start Guide}
+
+Before starting working with the \rhobanp, the user should get familiar with
+Linux and C/C++ programming under Linux. This guide is applicable to
+version \version of the \rhobanp.
+Version \version is based on Linux kernel 2.6.
+
+
+\subsection{Using the C API control\_low\_level}
+
+This section provides a rough description of the low level API.
+More details are to be found in the header file \file{control\_low\_level.h}.
+
+\subsubsection{Initializing the low level system}
+
+First thing to do is initializing the low level system.
+This creates a communication link between the module
+and the API.
+This is done by a call to:
+
+\instruction{int low\_level\_init(void);}
+
+\subsubsection{Listing and accessing devices}
+
+After having initialized the low level,
+the list of devices can be obtained in
+two ways. A pretty print of devices can be obtained using
+\instruction{void print\_devices\_infos(void)}.
+The complete list of devices and pointers to the devices themselves
+is stored in the \instruction{extern ModuleConnexion* etat\_global} structure.
+
+\subsubsection{Writing outputs}
+
+A desirable basic feature is to control the state of the output pins of the
+controller. For each pin to control, load a digital writer device using:
+
+\instruction{
+DigitalWriter * attach\_digital\_writer(ui32 frequency, ui32 pin, const char *
+name)}
+The frequency is the refresh frequency of the pin value by the module.
+The pin to be driven is specified by an integer, using the encodiing in
+\file{arch/arm/mach-at91/include/mach/gpio.h}. Name is an optional name to be
+given to the writer, and can be set to NULL.
+
+
+To actually set an output, use
+\instruction{
+void set\_digital\_output(ui32 id, ui32 value)
+}
+.
+
+Digital writers can be used to send sequences of pulses,
+which are specified by a sequence of durations and values,
+see the \instruction{Pulse} and \instruction{DigitalWriter} for more details.
+
+
+
+\subsubsection{Attaching a pwm device}
+
+Pwm devices can be used to generate pwm signals and thus directly control
+pwm servos.
+
+To attach a pwm device use
+\instruction{
+PwmDevice * attach\_pwm(ui32 frequency,ui32 pin,  const char *
+pwm\_name)}
+where frequency is the frequency of th epwm signal (50 Hz) for most devices.
+Only pins associated to a TIOA or TIOB signal can generate pwm signals this
+way. Each timer of the at91 microcontroller generates two signals TIOA and
+TIOB. Timer used by Linux (usually timers 0 and 1) should not be
+concurrently accessed by the module.
+On the at91sam9260 micro controller, pins usable to generate pwm signals are
+AT91\_PIN\_PB0 (TIOA3), AT91\_PIN\_PB1 (TIOB3),  AT91\_PIN\_PB2 (TIOA4), AT91\_PIN\_PB3
+(TIOA5),  AT91\_PIN\_PB18 (TIOB4) and AT91\_PIN\_PB19 (TIOB5).
+ 
+To set the cyclic rate of the signal, the signal should be first enabled
+and then the cyclic rate can be set using \instruction{void
+set\_pwm\_cyclic\_rate (PwmDevice *, ui32 rate)}. The rate is expressed in
+thousands, for example at 50Hz (20ms) , a rate of 80 gives rise to high state during 20/1000*80=160
+$\mu$s.
+
+\subsubsection{Reading sensors}
+
+Sensor devices include digital reader, magnetic sensor and analogic input.
+Each sensor has a refresh frequency.
+With each sensor device is associated the
+queue of the last 512 values measured at the sensor frequency.
+
+\subsubsection{Reading inputs}
+
+DigitalReaders are sensor devices that can be used to read the state of an input
+pin. Actually, not only digital readers read can be used to access the current
+value of a pin
+but they also monitor the sequence of state changes of an input pin.
+
+To create a digital reader, use:
+\instruction{
+DigitalWriter * attach\_digital\_writer(ui32 frequency, ui32 pin,
+const char * name)}
+
+\subsubsection{Sampling an analogic input}
+
+AnalogicSensors are sensor devices that can be used to read analogic values.
+
+To create a digital reader, use:
+\instruction{
+DigitalWriter * attach\_digital\_writer(ui32 frequency, ui32 pin,
+const char * name)}
+
+On the at91sam9260 micro controller, there are four pins that can be used
+to measure analogic values are AT91\_PIN\_PC0 (AD0), AT91\_PIN\_PC1 (AD1),  AT91\_PIN\_PC2 (AD2)
+AT91\_PIN\_PC3 (AD3).
+
+
+\subsubsection{Attaching a Dynamixel system}
+
+Also system of dynamixel servos can be controlled by the \rhobanp.
+
+
+
+
+\end{document}
