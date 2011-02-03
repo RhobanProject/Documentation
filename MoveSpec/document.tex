@@ -1,5 +1,7 @@
 \documentclass[a4paper]{article}
 
+%very bad name to change quickly
+\newcommand{\spec}{\emph{RobotMove}\ }
 
 \newcommand{\rhoban}{\emph{Rhoban}\ }
 \newcommand{\rhobanp}{\emph{Rhoban ARM9 Plateform}\ }
@@ -10,25 +12,38 @@
 
 \newcommand{\file}[1]{\emph{#1}}
 
-\title{Using the \rhobanp}
+\title{A robotic move specification language}
 
 \author{Hugo Gimbert \and Olivier Ly}
 
 \begin{document}
 \maketitle
 
+\begin{abstract}
+This document describes the move specification language
+\spec used
+in the \rhoban project. 
+\end{abstract}
 
-\section{Title}
+\section{Miscellaneous ideas}
 
-\subsection{Subtitle}
+An efficient robot move controller requires:
+\begin{enumerate}
+  \item reference target trajectories to guide the move (target splines)
+  \item interpretation of sensors values as errors (compute distance to splines)
+  \item real-time corrections based on errors (fit the splines)
+  \item state-based emergency transitions (horse fall management)
+  \item state-based regular transitions (finite automata and control splines)
+  \item parallel composition of moves
+  \item hierarchical composition of moves, with variable time scales
+\end{enumerate}
 
-Plain text.
+ 
 
-\subsection{Another subtitle}
+\section{Syntax}
 
-More plain text.
+\section{Semantic}
 
-
-
+\section{Embedded Scheduling}
 
 \end{document}
