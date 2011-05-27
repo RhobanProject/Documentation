@@ -1,0 +1,33 @@
+
+How to bootstrap a Debian system on a SD card.
+Tested on a Debian/amd64 host.
+
+Applies to the Roboard.
+
+!!
+  Be warned that it is expected that the SD card is on /dev/sdb.
+  If you have two hard drives, it is highly probable that /dev/sdb is your
+  second hard drive
+!!
+
+* Partition the SD card
+ * # parted /dev/sdb
+ * Within parted,
+   * mkpart (and answer ext3, 64s, 3072M)
+   * mkpart (and answer linux-swap, 3072M, 3584M)
+   * toggle 1 boot
+   * quit
+
+* Prepare/format partitions
+ * # mke2fs -t ext3 /dev/sdb1
+ * # tune2fs -c 0 -i 0 /dev/sdb1 
+(this is quite important because it will prevent an unexpected fsck at
+the wrong moment)
+ * # mkswap /dev/sdb2
+
+* Mount root file system
+ * # mount /dev/sdb1 /mnt/roboard
+
+* Bootstrap Debian system (requires installation of debootstrap)
+ * # debootstrap --arch=i386 squeeze /mnt/roboard
+(lasts quite long)
