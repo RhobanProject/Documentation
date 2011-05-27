@@ -42,11 +42,17 @@ proc		/proc	proc	defaults		0	0
 T0:23:respawn:/sbin/getty -L ttyS0 115200 vt100
  * # chroot /mnt/roboard
    chroot# mount /proc
+   chroot# passwd root
+   chroot# apt-get install locales
+   chroot# dpkg-reconfigure locales
+(choose en_US UTF8, and then default None)
    chroot# apt-get install linux-image-486
    chroot# apt-get install grub
    Edit /etc/default/grub and add the lines
+GRUB_CMDLINE_LINUX="console=ttyS0,115200n8 console=tty0"
 GRUB_TERMINAL_INPUT=serial
 GRUB_TERMINAL_OUTPUT=serial
+GRUB_SERIAL_COMMAND="serial --unit=0 --speed 115200 --word=8 --parity=no --stop=1"
    chroot# grub-install /dev/sdb
    chroot# umount /proc
    chroot# exit
