@@ -31,3 +31,26 @@ the wrong moment)
 * Bootstrap Debian system (requires installation of debootstrap)
  * # debootstrap --arch=i386 squeeze /mnt/roboard
 (lasts quite long)
+ * # mount -o bind /dev /mnt/roboard/dev
+ * Edit /mnt/roboard/etc/fstab so that it contains
+
+proc		/proc	proc	defaults		0	0
+/dev/sda1	/	ext3	errors=remount-ro	0	1
+/dev/sda2	none	swap	sw			0	0
+
+ * Edit /mnt/roboard/etc/inittab and make sure there is a line
+T0:23:respawn:/sbin/getty -L ttyS0 115200 vt100
+ * # chroot /mnt/roboard
+   chroot# mount /proc
+   chroot# apt-get install linux-image-486
+   chroot# apt-get install grub
+   Edit /etc/default/grub and add the lines
+GRUB_TERMINAL_INPUT=serial
+GRUB_TERMINAL_OUTPUT=serial
+   chroot# grub-install /dev/sdb
+   chroot# umount /proc
+   chroot# exit
+
+ * # umount /mnt/roboard/dev
+ * # umount /mnt/roboard
+
