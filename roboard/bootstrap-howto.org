@@ -1,5 +1,5 @@
 
-How to bootstrap a Debian system on a SD card.
+How to bootstrap a Debian system on a SD card for the Roboard. (Aymeric)
 Tested on a Debian/amd64 host.
 
 Applies to the Roboard.
