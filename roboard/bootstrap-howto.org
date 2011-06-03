@@ -49,7 +49,7 @@ T0:23:respawn:/sbin/getty -L ttyS0 115200 vt100
    chroot# apt-get install linux-image-486
    chroot# apt-get install grub
    Edit /etc/default/grub and add the lines
-GRUB_CMDLINE_LINUX="console=ttyS0,115200n8 console=tty0"
+GRUB_CMDLINE_LINUX="console=ttyS0,115200n8"
 GRUB_TERMINAL_INPUT=serial
 GRUB_TERMINAL_OUTPUT=serial
 GRUB_SERIAL_COMMAND="serial --unit=0 --speed 115200 --word=8 --parity=no --stop=1"
@@ -62,3 +62,40 @@ GRUB_SERIAL_COMMAND="serial --unit=0 --speed 115200 --word=8 --parity=no --stop=
 
 * Compile new kernel supporting the vortex86
 
+Get latest stable kernel from http://www.kernel.org/ (tested with
+2.6.39) and extract.
+
+Then, in the top directory of the sources, type
+
+$ make ARCH=i386 menuconfig
+(choose the following options)
+
+ * CPU generic support
+ * vt6655 (wifi)
+ * strip debugging symbols
+
+then
+$ make ARCH=i386 targz-pkg
+
+
+This will create after a long while a linux-2.6.xx.tar.gz which you
+can extract to the root directory of the roboard
+
+Then, INSIDE THE CHROOT OF THE ROBOARD, or on the roboard itself,
+type
+
+ # update-grub
+
+* Have the card connect to the (ethernet) network
+
+Edit /etc/network/interfaces and put the following lines.
+
+auto eth1
+eth1 inet dhcp
+
+Then, either reboot or "/etc/init.d/networking start"
+
+* List of necessary packages in order to compile software on the roboard
+
+ # apt-get install libcv-dev libcvaux-dev libhighgui-dev
+(this will pull many things like gcc, make, ...)
