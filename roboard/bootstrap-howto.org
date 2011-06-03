@@ -95,7 +95,7 @@ eth1 inet dhcp
 
 Then, either reboot or "/etc/init.d/networking start"
 
-* List of necessary packages in order to compile software on the roboard
+* List of necessary packages in order to compile the software on the roboard
 
  # apt-get install libcv-dev libcvaux-dev libhighgui-dev
 (this will pull many things like gcc, make, ...)
