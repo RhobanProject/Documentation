@@ -1,0 +1,311 @@
+[    0.000000] Initializing cgroup subsys cpuset
+[    0.000000] Initializing cgroup subsys cpu
+[    0.000000] Linux version 2.6.39 (vincent@dell) (gcc version 4.4.5 (Debian 4.4.5-8) ) #3 SMP Mon May 30 15:21:10 CEST 2011
+[    0.000000] CPU: vendor_id 'Vortex86 SoC' unknown, using generic init.
+[    0.000000] CPU: Your system may be unstable.
+[    0.000000] BIOS-provided physical RAM map:
+[    0.000000]  BIOS-e820: 0000000000000000 - 000000000009fc00 (usable)
+[    0.000000]  BIOS-e820: 000000000009fc00 - 00000000000a0000 (reserved)
+[    0.000000]  BIOS-e820: 00000000000e4000 - 0000000000100000 (reserved)
+[    0.000000]  BIOS-e820: 0000000000100000 - 0000000010000000 (usable)
+[    0.000000]  BIOS-e820: 00000000ff000000 - 0000000100000000 (reserved)
+[    0.000000] Notice: NX (Execute Disable) protection missing in CPU!
+[    0.000000] DMI not present or invalid.
+[    0.000000] e820 update range: 0000000000000000 - 0000000000010000 (usable) ==> (reserved)
+[    0.000000] e820 remove range: 00000000000a0000 - 0000000000100000 (usable)
+[    0.000000] last_pfn = 0x10000 max_arch_pfn = 0x100000
+[    0.000000] initial memory mapped : 0 - 01800000
+[    0.000000] Base memory trampoline at [c009b000] 9b000 size 16384
+[    0.000000] init_memory_mapping: 0000000000000000-0000000010000000
+[    0.000000]  0000000000 - 0010000000 page 4k
+[    0.000000] kernel direct mapping tables up to 10000000 @ 17bd000-1800000
+[    0.000000] RAMDISK: 0b741000 - 0c040000
+[    0.000000] ACPI Error: A valid RSDP was not found (20110316/tbxfroot-219)
+[    0.000000] 0MB HIGHMEM available.
+[    0.000000] 256MB LOWMEM available.
+[    0.000000]   mapped low ram: 0 - 10000000
+[    0.000000]   low ram: 0 - 10000000
+[    0.000000] Zone PFN ranges:
+[    0.000000]   DMA      0x00000010 -> 0x00001000
+[    0.000000]   Normal   0x00001000 -> 0x00010000
+[    0.000000]   HighMem  empty
+[    0.000000] Movable zone start PFN for each node
+[    0.000000] early_node_map[2] active PFN ranges
+[    0.000000]     0: 0x00000010 -> 0x0000009f
+[    0.000000]     0: 0x00000100 -> 0x00010000
+[    0.000000] On node 0 totalpages: 65423
+[    0.000000]   DMA zone: 32 pages used for memmap
+[    0.000000]   DMA zone: 0 pages reserved
+[    0.000000]   DMA zone: 3951 pages, LIFO batch:0
+[    0.000000]   Normal zone: 480 pages used for memmap
+[    0.000000]   Normal zone: 60960 pages, LIFO batch:15
+[    0.000000] Using APIC driver default
+[    0.000000] SFI: Simple Firmware Interface v0.81 http://simplefirmware.org
+[    0.000000] SMP: Allowing 1 CPUs, 0 hotplug CPUs
+[    0.000000] No local APIC present or hardware disabled
+[    0.000000] APIC: disable apic facility
+[    0.000000] APIC: switched to apic NOOP
+[    0.000000] nr_irqs_gsi: 16
+[    0.000000] PM: Registered nosave memory: 000000000009f000 - 00000000000a0000
+[    0.000000] PM: Registered nosave memory: 00000000000a0000 - 00000000000e4000
+[    0.000000] PM: Registered nosave memory: 00000000000e4000 - 0000000000100000
+[    0.000000] Allocating PCI resources starting at 10000000 (gap: 10000000:ef000000)
+[    0.000000] setup_percpu: NR_CPUS:8 nr_cpumask_bits:8 nr_cpu_ids:1 nr_node_ids:1
+[    0.000000] PERCPU: Embedded 12 pages/cpu @cfdd8000 s25984 r0 d23168 u49152
+[    0.000000] pcpu-alloc: s25984 r0 d23168 u49152 alloc=12*4096
+[    0.000000] pcpu-alloc: [0] 0 
+[    0.000000] Built 1 zonelists in Zone order, mobility grouping on.  Total pages: 64911
+[    0.000000] Kernel command line: BOOT_IMAGE=/boot/vmlinuz-2.6.39 root=UUID=6ec80cf6-b7ce-48aa-a3e5-df339ea970a6 ro console=ttyS0,115200n8 console=tty0 quiet
+[    0.000000] PID hash table entries: 1024 (order: 0, 4096 bytes)
+[    0.000000] Dentry cache hash table entries: 32768 (order: 5, 131072 bytes)
+[    0.000000] Inode-cache hash table entries: 16384 (order: 4, 65536 bytes)
+[    0.000000] Initializing CPU#0
+[    0.000000] Initializing HighMem for node 0 (00000000:00000000)
+[    0.000000] Memory: 245236k/262144k available (2581k kernel code, 16456k reserved, 1073k data, 372k init, 0k highmem)
+[    0.000000] virtual kernel memory layout:
+[    0.000000]     fixmap  : 0xfff16000 - 0xfffff000   ( 932 kB)
+[    0.000000]     pkmap   : 0xff800000 - 0xffc00000   (4096 kB)
+[    0.000000]     vmalloc : 0xd0800000 - 0xff7fe000   ( 751 MB)
+[    0.000000]     lowmem  : 0xc0000000 - 0xd0000000   ( 256 MB)
+[    0.000000]       .init : 0xc1392000 - 0xc13ef000   ( 372 kB)
+[    0.000000]       .data : 0xc12855d6 - 0xc1391c40   (1073 kB)
+[    0.000000]       .text : 0xc1000000 - 0xc12855d6   (2581 kB)
+[    0.000000] Checking if this processor honours the WP bit even in supervisor mode...Ok.
+[    0.000000] SLUB: Genslabs=15, HWalign=32, Order=0-3, MinObjects=0, CPUs=1, Nodes=1
+[    0.000000] Hierarchical RCU implementation.
+[    0.000000] 	RCU-based detection of stalled CPUs is disabled.
+[    0.000000] NR_IRQS:2304 nr_irqs:256 16
+[    0.000000] CPU 0 irqstacks, hard=cf808000 soft=cf80a000
+[    0.000000] spurious 8259A interrupt: IRQ7.
+[    0.000000] Console: colour dummy device 80x25
+[    0.000000] console [tty0] enabled
+[    0.000000] console [ttyS0] enabled
+[    0.000000] Fast TSC calibration using PIT
+[    0.000000] Detected 466.622 MHz processor.
+[    0.008017] Calibrating delay loop (skipped), value calculated using timer frequency.. 933.24 BogoMIPS (lpj=1866488)
+[    0.008079] pid_max: default: 32768 minimum: 301
+[    0.008425] Security Framework initialized
+[    0.008480] SELinux:  Disabled at boot.
+[    0.008630] Mount-cache hash table entries: 512
+[    0.010065] Initializing cgroup subsys ns
+[    0.010100] ns_cgroup deprecated: consider using the 'clone_children' flag without the ns_cgroup.
+[    0.010141] Initializing cgroup subsys cpuacct
+[    0.010222] Initializing cgroup subsys devices
+[    0.010252] Initializing cgroup subsys freezer
+[    0.010281] Initializing cgroup subsys net_cls
+[    0.010931] SMP alternatives: switching to UP code
+[    0.021289] Freeing SMP alternatives: 16k freed
+[    0.021769] weird, boot CPU (#0) not listed by the BIOS.
+[    0.021801] SMP motherboard not detected.
+[    0.021827] Local APIC not detected. Using dummy APIC emulation.
+[    0.021854] SMP disabled
+[    0.021877] Performance Events: 
+[    0.026481] Brought up 1 CPUs
+[    0.026514] Total of 1 processors activated (933.24 BogoMIPS).
+[    0.027485] devtmpfs: initialized
+[    0.033276] print_constraints: dummy: 
+[    0.033873] NET: Registered protocol family 16
+[    0.037943] PCI: PCI BIOS revision 3.00 entry at 0xf0031, last bus=0
+[    0.037979] PCI: Using configuration type 1 for base access
+[    0.049029] bio: create slab <bio-0> at 0
+[    0.049855] ACPI: Interpreter disabled.
+[    0.050586] vgaarb: loaded
+[    0.052258] PCI: Probing PCI hardware
+[    0.052287] PCI: Probing PCI hardware (bus 00)
+[    0.052729] pci 0000:00:00.0: [17f3:6021] type 0 class 0x000600
+[    0.052941] pci 0000:00:03.0: [1106:3253] type 0 class 0x000280
+[    0.053014] pci 0000:00:03.0: reg 10: [mem 0xfefff000-0xfefff0ff]
+[    0.053067] pci 0000:00:03.0: reg 14: [io  0xde00-0xdeff]
+[    0.053192] pci 0000:00:03.0: supports D1 D2
+[    0.053228] pci 0000:00:03.0: PME# supported from D1 D2 D3hot
+[    0.053267] pci 0000:00:03.0: PME# disabled
+[    0.053386] pci 0000:00:07.0: [17f3:6031] type 0 class 0x000601
+[    0.053595] pci 0000:00:08.0: [17f3:6040] type 0 class 0x000200
+[    0.053654] pci 0000:00:08.0: reg 10: [io  0xdf00-0xdfff]
+[    0.053705] pci 0000:00:08.0: reg 14: [mem 0xfefff400-0xfefff4ff]
+[    0.053798] pci 0000:00:08.0: reg 30: [mem 0xfefe0000-0xfefeffff pref]
+[    0.053932] pci 0000:00:0a.0: [17f3:6060] type 0 class 0x000c03
+[    0.053993] pci 0000:00:0a.0: reg 10: [mem 0xfeffd000-0xfeffdfff]
+[    0.054184] pci 0000:00:0a.1: [17f3:6061] type 0 class 0x000c03
+[    0.054244] pci 0000:00:0a.1: reg 10: [mem 0xfefff800-0xfefff8ff]
+[    0.054464] pci 0000:00:0b.0: [17f3:6060] type 0 class 0x000c03
+[    0.054524] pci 0000:00:0b.0: reg 10: [mem 0xfeffe000-0xfeffefff]
+[    0.054718] pci 0000:00:0b.1: [17f3:6061] type 0 class 0x000c03
+[    0.054778] pci 0000:00:0b.1: reg 10: [mem 0xfefffc00-0xfefffcff]
+[    0.056138] pci 0000:00:0c.0: [8086:24db] type 0 class 0x000101
+[    0.056202] pci 0000:00:0c.0: reg 10: [io  0x0000-0x0007]
+[    0.056251] pci 0000:00:0c.0: reg 14: [io  0x0000-0x0003]
+[    0.056300] pci 0000:00:0c.0: reg 18: [io  0x0000-0x0007]
+[    0.056349] pci 0000:00:0c.0: reg 1c: [io  0x0000-0x0003]
+[    0.056398] pci 0000:00:0c.0: reg 20: [io  0xef00-0xef0f]
+[    0.061272] pci 0000:00:07.0: default IRQ router [17f3:6031]
+[    0.061426] PCI: pci_cache_line_size set to 32 bytes
+[    0.061645] reserve RAM buffer: 000000000009fc00 - 000000000009ffff 
+[    0.064333] Switching to clocksource pit
+[    0.084498] pnp: PnP ACPI: disabled
+[    0.121887] pci_bus 0000:00: resource 0 [io  0x0000-0xffff]
+[    0.121934] pci_bus 0000:00: resource 1 [mem 0x00000000-0xffffffff]
+[    0.123842] NET: Registered protocol family 2
+[    0.124544] IP route cache hash table entries: 2048 (order: 1, 8192 bytes)
+[    0.128691] TCP established hash table entries: 8192 (order: 4, 65536 bytes)
+[    0.129070] TCP bind hash table entries: 8192 (order: 4, 65536 bytes)
+[    0.129442] TCP: Hash tables configured (established 8192 bind 8192)
+[    0.129474] TCP reno registered
+[    0.129509] UDP hash table entries: 128 (order: 0, 4096 bytes)
+[    0.129592] UDP-Lite hash table entries: 128 (order: 0, 4096 bytes)
+[    0.131695] NET: Registered protocol family 1
+[    0.151646] PCI: CLS mismatch (64 != 16), using 32 bytes
+[    0.172114] Unpacking initramfs...
+[    4.677953] Freeing initrd memory: 9212k freed
+[    4.735311] platform rtc_cmos: registered platform RTC device (no PNP device found)
+[    4.737438] audit: initializing netlink socket (disabled)
+[    4.737545] type=2000 audit(1306945504.732:1): initialized
+[    4.889650] HugeTLB registered 4 MB page size, pre-allocated 0 pages
+[    4.945731] VFS: Disk quotas dquot_6.5.2
+[    4.948283] Dquot-cache hash table entries: 1024 (order 0, 4096 bytes)
+[    4.949564] msgmni has been set to 497
+[    4.953543] Block layer SCSI generic (bsg) driver version 0.4 loaded (major 253)
+[    4.953586] io scheduler noop registered
+[    4.953613] io scheduler deadline registered
+[    4.953811] io scheduler cfq registered (default)
+[    4.957902] Serial: 8250/16550 driver, 4 ports, IRQ sharing enabled
+[    4.962459] serial8250: ttyS0 at I/O 0x3f8 (irq = 4) is a 16550A
+[    4.966436] serial8250: ttyS1 at I/O 0x2f8 (irq = 3) is a 16550A
+[    4.970135] Linux agpgart interface v0.103
+[    4.973231] i8042: PNP: No PS/2 controller found. Probing ports directly.
+[    4.978014] serio: i8042 KBD port at 0x60,0x64 irq 1
+[    4.978088] serio: i8042 AUX port at 0x60,0x64 irq 12
+[    4.981206] mousedev: PS/2 mouse device common for all mice
+[    4.982318] rtc_cmos rtc_cmos: rtc core: registered rtc_cmos as rtc0
+[    4.982417] rtc0: alarms up to one day, 114 bytes nvram
+[    4.982585] cpuidle: using governor ladder
+[    4.982613] cpuidle: using governor menu
+[    4.989373] TCP cubic registered
+[    4.993708] NET: Registered protocol family 10
+[    5.009139] Mobile IPv6
+[    5.009174] NET: Registered protocol family 17
+[    5.009234] Registering the dns_resolver key type
+[    5.009470] Using IPI No-Shortcut mode
+[    5.012465] PM: Hibernation image not present or could not be loaded.
+[    5.012578] registered taskstats version 1
+[    5.013528] rtc_cmos rtc_cmos: setting system clock to 2011-06-01 16:25:06 UTC (1306945506)
+[    5.013777] Initializing network drop monitor service
+[    5.014660] Freeing unused kernel memory: 372k freed
+[    5.018305] Write protecting the kernel text: 2584k
+[    5.018552] Write protecting the kernel read-only data: 880k
+[    5.264609] udev[40]: starting version 164
+[    5.884582] Switching to clocksource tsc
+[    6.528433] Clocksource tsc unstable (delta = -209424067 ns)
+[    6.538338] Switching to clocksource pit
+[    6.877555] r6040: RDC R6040 NAPI net driver,version 0.27 (23Feb2011)
+[    7.215745] Uniform Multi-Platform E-IDE driver
+[    7.318026] r6040_eth_mii: probed
+[    7.342633] r6040 0000:00:08.0: attached PHY driver [Generic PHY] (mii_bus:phy_addr=0:01)
+[    7.354442] r6040 0000:00:08.0: eth0: Features changed: 0x00004800 -> 0x00004000
+[    7.434207] piix 0000:00:0c.0: IDE controller (0x8086:0x24db rev 0x01)
+[    7.434308] piix 0000:00:0c.0: IDE port disabled
+[    7.434455] piix 0000:00:0c.0: not 100% native mode: will probe irqs later
+[    7.434505]     ide0: BM-DMA at 0xef00-0xef07
+[    7.434579] Probing IDE interface ide0...
+[    7.833734] hda: SD04G RDC SD-IDE HOST CONTROLLER, ATA DISK drive
+[    8.693597] usbcore: registered new interface driver usbfs
+[    8.695455] usbcore: registered new interface driver hub
+[    8.695973] usbcore: registered new device driver usb
+[    9.142879] ehci_hcd: USB 2.0 'Enhanced' Host Controller (EHCI) Driver
+[    9.162606] hda: host max PIO4 wanted PIO255(auto-tune) selected PIO4
+[    9.162700] hda: host side 80-wire cable detection failed, limiting max speed to UDMA33
+[    9.162738] hda: UDMA/33 mode selected
+[    9.162973] ide0 at 0x1f0-0x1f7,0x3f6 on irq 14
+[    9.174045] ehci_hcd 0000:00:0a.1: EHCI Host Controller
+[    9.174348] ehci_hcd 0000:00:0a.1: new USB bus registered, assigned bus number 1
+[    9.201115] ehci_hcd 0000:00:0a.1: irq 11, io mem 0xfefff800
+[    9.209981] ehci_hcd 0000:00:0a.1: USB 2.0 started, EHCI 1.00
+[    9.210239] usb usb1: New USB device found, idVendor=1d6b, idProduct=0002
+[    9.210286] usb usb1: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+[    9.210326] usb usb1: Product: EHCI Host Controller
+[    9.210360] usb usb1: Manufacturer: Linux 2.6.39 ehci_hcd
+[    9.210395] usb usb1: SerialNumber: 0000:00:0a.1
+[    9.216717] hub 1-0:1.0: USB hub found
+[    9.217589] hub 1-0:1.0: 2 ports detected
+[    9.218359] ehci_hcd 0000:00:0b.1: EHCI Host Controller
+[    9.218466] ehci_hcd 0000:00:0b.1: new USB bus registered, assigned bus number 2
+[    9.241712] ehci_hcd 0000:00:0b.1: irq 11, io mem 0xfefffc00
+[    9.253738] ehci_hcd 0000:00:0b.1: USB 2.0 started, EHCI 1.00
+[    9.253986] usb usb2: New USB device found, idVendor=1d6b, idProduct=0002
+[    9.254033] usb usb2: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+[    9.254074] usb usb2: Product: EHCI Host Controller
+[    9.254108] usb usb2: Manufacturer: Linux 2.6.39 ehci_hcd
+[    9.254143] usb usb2: SerialNumber: 0000:00:0b.1
+[    9.259858] hub 2-0:1.0: USB hub found
+[    9.259935] hub 2-0:1.0: 2 ports detected
+[    9.570929] usb 2-2: new high speed USB device number 2 using ehci_hcd
+[    9.610807] ohci_hcd: USB 1.1 'Open' Host Controller (OHCI) Driver
+[    9.611088] ohci_hcd 0000:00:0a.0: OHCI Host Controller
+[    9.611212] ohci_hcd 0000:00:0a.0: new USB bus registered, assigned bus number 3
+[    9.611406] ohci_hcd 0000:00:0a.0: irq 11, io mem 0xfeffd000
+[    9.801794] usb usb3: New USB device found, idVendor=1d6b, idProduct=0001
+[    9.801851] usb usb3: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+[    9.801892] usb usb3: Product: OHCI Host Controller
+[    9.801926] usb usb3: Manufacturer: Linux 2.6.39 ohci_hcd
+[    9.801962] usb usb3: SerialNumber: 0000:00:0a.0
+[    9.810212] hub 3-0:1.0: USB hub found
+[    9.810302] hub 3-0:1.0: 2 ports detected
+[    9.811133] ohci_hcd 0000:00:0b.0: OHCI Host Controller
+[    9.811241] ohci_hcd 0000:00:0b.0: new USB bus registered, assigned bus number 4
+[    9.811422] ohci_hcd 0000:00:0b.0: irq 11, io mem 0xfeffe000
+[   10.014405] usb usb4: New USB device found, idVendor=1d6b, idProduct=0001
+[   10.014456] usb usb4: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+[   10.014496] usb usb4: Product: OHCI Host Controller
+[   10.014530] usb usb4: Manufacturer: Linux 2.6.39 ohci_hcd
+[   10.014565] usb usb4: SerialNumber: 0000:00:0b.0
+[   10.023441] hub 4-0:1.0: USB hub found
+[   10.023521] hub 4-0:1.0: 2 ports detected
+[   10.058776] usb 2-2: New USB device found, idVendor=0403, idProduct=6010
+[   10.058833] usb 2-2: New USB device strings: Mfr=1, Product=2, SerialNumber=0
+[   10.058873] usb 2-2: Product: Dual RS232-HS
+[   10.058904] usb 2-2: Manufacturer: FTDI
+[   10.745976] SCSI subsystem initialized
+[   11.730326] libata version 3.00 loaded.
+[   12.139101] ide-gd driver 1.18
+[   12.139472] hda: max request size: 128KiB
+[   12.139510] hda: 7741440 sectors (3963 MB) w/0KiB Cache, CHS=7680/16/63
+[   12.143024] hda: detected capacity change from 0 to 3963617280
+[   12.152094]  hda: hda1 hda2
+[   13.109906] EXT3-fs: barriers not enabled
+[   13.110826] kjournald starting.  Commit interval 5 seconds
+[   13.111009] EXT3-fs (hda1): mounted filesystem with ordered data mode
+[   14.271064] udev[160]: starting version 164
+[   14.852838] udev[177]: renamed network interface eth0 to eth1
+[   15.042935] vt6655_stage: module is from the staging directory, the quality is unknown, you have been warned.
+[   15.520452] input: PC Speaker as /devices/platform/pcspkr/input/input0
+[   16.250710] VIA Networking Solomon-A/B/G Wireless LAN Adapter Driver Ver. 1.19.12
+[   16.250754] Copyright (c) 2003 VIA Networking Technologies, Inc.
+[   16.256289] vt6655 0000:00:03.0: eth0: Features changed: 0x00004800 -> 0x00004000
+[   16.323319] eth0: VIA Networking Solomon-A/B/G Wireless LAN Adapter 
+[   16.323368] eth0: MAC=00:12:7b:4c:80:8d
+[   16.323396]  IO=0xde00 Mem=0xd0d14000 
+[   16.323420]  IRQ=9 
+[   16.443774] udev[171]: renamed network interface eth0 to eth2
+[   16.798041] usbcore: registered new interface driver usbserial
+[   16.798337] USB Serial support registered for generic
+[   16.802629] usbcore: registered new interface driver usbserial_generic
+[   16.802668] usbserial: USB Serial Driver core
+[   17.370281] USB Serial support registered for FTDI USB Serial Device
+[   17.372681] ftdi_sio 2-2:1.0: FTDI USB Serial Device converter detected
+[   17.380616] usb 2-2: Detected FT2232H
+[   17.380657] usb 2-2: Number of endpoints 2
+[   17.380691] usb 2-2: Endpoint 1 MaxPacketSize 512
+[   17.380727] usb 2-2: Endpoint 2 MaxPacketSize 512
+[   17.380760] usb 2-2: Setting MaxPacketSize 512
+[   17.388742] usb 2-2: FTDI USB Serial Device converter now attached to ttyUSB0
+[   17.388937] ftdi_sio 2-2:1.1: FTDI USB Serial Device converter detected
+[   17.390743] usb 2-2: Detected FT2232H
+[   17.390779] usb 2-2: Number of endpoints 2
+[   17.390813] usb 2-2: Endpoint 1 MaxPacketSize 512
+[   17.390848] usb 2-2: Endpoint 2 MaxPacketSize 512
+[   17.390881] usb 2-2: Setting MaxPacketSize 512
+[   17.395620] usb 2-2: FTDI USB Serial Device converter now attached to ttyUSB1
+[   17.401170] usbcore: registered new interface driver ftdi_sio
+[   17.401210] ftdi_sio: v1.6.0:USB FTDI Serial Converters Driver
+[   18.251083] Error: Driver 'pcspkr' is already registered, aborting...
+[   19.416310] EXT3-fs (hda1): using internal journal
