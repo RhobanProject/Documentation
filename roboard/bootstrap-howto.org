@@ -13,8 +13,10 @@ Applies to the Roboard.
 * Partition the SD card
  * # parted /dev/sdb
  * Within parted,
-   * mkpart (and answer ext3, 64s, 3072M)
-   * mkpart (and answer linux-swap, 3072M, 3584M)
+   * print (shows status of partitions)
+   * remove all existing partitions (rm <id>)
+   * mkpart (and answer primary, ext3, 64s, 7000M)
+   * mkpart (and answer primary, linux-swap, 7000M, 7500M)
    * toggle 1 boot
    * quit
 
