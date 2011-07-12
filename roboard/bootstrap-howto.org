@@ -56,6 +56,7 @@ GRUB_TERMINAL_INPUT=serial
 GRUB_TERMINAL_OUTPUT=serial
 GRUB_SERIAL_COMMAND="serial --unit=0 --speed 115200 --word=8 --parity=no --stop=1"
    chroot# grub-install /dev/sdb
+   chroot# update-grub
    chroot# umount /proc
    chroot# exit
 
@@ -115,3 +116,11 @@ toto	ALL=(ALL) ALL
  # apt-get install subversion libcv-dev libcvaux-dev libhighgui-dev
 (this will pull many things like gcc, make, ...)
 (takes a long time)
+* How to compile a package from sources
+Example with "libcv2.1" package. Actually builds all packages which
+share the same sources.
+
+ $ apt-get build-dep libcv2.1
+ $ apt-get source libcv2.1
+ $ cd "sources directory created by above command"
+ $ dpkg-buildpackage -rfakeroot -us -uc
