@@ -43,6 +43,10 @@
     #define RB_LINUX
 #endif
 
+#if defined(__GNUC__) && defined(__NetBSD__)
+    #define RB_NETBSD
+#endif
+
 #if defined(_MSC_VER) //&& defined(_M_IX86)
     #if defined   (WINCE)
         #define RB_MSVC_WINCE

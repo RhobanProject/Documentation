@@ -11,7 +11,7 @@
 
 #if defined(RB_MSVC_WIN32) || defined(RB_MSVC_WINCE)
 	#include <windows.h>
-#elif defined(RB_LINUX)
+#elif defined(RB_LINUX) || defined(RB_NETBSD)
     #include <unistd.h>
     #include <sys/times.h>
 #elif defined(RB_BC_DOS)
@@ -165,7 +165,7 @@ _RBAPI_C(void) err_SetMsg(int errtype, char* fmt, ...) {
 RBAPI(unsigned long) timer_nowtime(void) { //in ms
 #if defined(RB_MSVC_WIN32) || defined(RB_MSVC_WINCE)
 	return GetTickCount();
-#elif defined(RB_LINUX)
+#elif defined(RB_LINUX) || defined(RB_NETBSD)
     static bool usetimer = false;
     static unsigned long long inittime;
     struct tms cputime;
@@ -259,7 +259,7 @@ static unsigned long getclocks(void) {
 
     __emit__(0x66); _asm pop dx;
     __emit__(0x66); _asm pop ax;
-#elif defined(RB_DJGPP) || defined(RB_LINUX)
+#elif defined(RB_DJGPP) || defined(RB_LINUX) || defined(RB_NETBSD)
     __asm__ __volatile__ (
         ".byte 0x0f; .byte 0x31"
         : "=a" (nowclocks) //, "=d"(nowclocks_msb)

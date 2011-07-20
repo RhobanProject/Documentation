@@ -17,6 +17,10 @@
     #include <pmdll.h>
 #elif defined   RB_LINUX
     #include <sys/io.h>
+#elif defined   RB_NETBSD
+    #include <sys/types.h>
+    #include <machine/sysarch.h>
+    #include <machine/pio.h>
 #elif defined   RB_DJGPP
     #include <pc.h>
     #include <dos.h>
@@ -55,7 +59,7 @@ RBAPI(void) io_EnableIRQ(void) {
             enable();
         #elif defined(RB_WATCOM)
             _enable();
-        #elif defined(RB_LINUX)
+        #elif defined(RB_LINUX) || defined(RB_NETBSD)
             asm("sti");  // only work on Vortex86SX/DX/...
         #endif
     }
@@ -68,7 +72,7 @@ RBAPI(void) io_DisableIRQ(void) {
             disable();
         #elif defined(RB_WATCOM)
             _disable();
-        #elif defined(RB_LINUX)
+        #elif defined(RB_LINUX) || defined(RB_NETBSD)
             asm("cli");  // only work on Vortex86SX/DX/...
         #endif
     }
@@ -119,6 +123,12 @@ RBAPI(int) io_Init(void) {
     #elif defined	RB_LINUX
         if (iopl(3) != 0)
 		{
+            err_SetMsg(ERROR_IOINITFAIL, "I/O library fails to initialize");
+            return -1;
+        }
+    #elif defined       RB_NETBSD
+	if (i386_iopl(3) != 0)
+	{
             err_SetMsg(ERROR_IOINITFAIL, "I/O library fails to initialize");
             return -1;
         }
@@ -195,7 +205,7 @@ RBAPI(void) io_outpdw(unsigned short addr, unsigned long val) {
             mov eax, val
             out dx, eax
         }
-    #elif defined	RB_LINUX
+    #elif defined	RB_LINUX || defined RB_NETBSD
         outl(val, addr);
     #elif defined   RB_DJGPP
         outportl(addr, val);
@@ -228,7 +238,7 @@ RBAPI(unsigned long) io_inpdw(unsigned short addr) {
             mov val, eax
         }
         return val;
-    #elif defined	RB_LINUX
+    #elif defined	RB_LINUX || defined RB_NETBSD
         return inl(addr);
 	#elif defined   RB_DJGPP
         return inportl(addr);
@@ -260,7 +270,7 @@ RBAPI(void) io_outpw(unsigned short addr, unsigned short val) {
             mov ax, WORD PTR val
             out dx, ax
         }
-    #elif defined	RB_LINUX
+    #elif defined	RB_LINUX || defined RB_NETBSD
         outw(val, addr);
     #elif defined   RB_DJGPP
         outportw(addr, val);
@@ -291,7 +301,7 @@ RBAPI(unsigned short) io_inpw(unsigned short addr) {
             mov WORD PTR val, ax
         }
         return val;
-    #elif defined	RB_LINUX
+    #elif defined	RB_LINUX || defined RB_NETBSD
         return inw(addr);
     #elif defined   RB_DJGPP
         return inportw(addr);
@@ -317,7 +327,7 @@ RBAPI(void) io_outpb(unsigned short addr, unsigned char val) {
             mov al, val
             out dx, al
         }
-    #elif defined	RB_LINUX
+    #elif defined	RB_LINUX || defined RB_NETBSD
         outb(val, addr);
     #elif defined   RB_DJGPP
         outportb(addr, val);
@@ -348,7 +358,7 @@ RBAPI(unsigned char) io_inpb(unsigned short addr) {
             mov val, al
         }
         return val;
-    #elif defined	RB_LINUX
+    #elif defined	RB_LINUX || defined RB_NETBSD
         return inb(addr);
     #elif defined   RB_DJGPP
         return inportb(addr);

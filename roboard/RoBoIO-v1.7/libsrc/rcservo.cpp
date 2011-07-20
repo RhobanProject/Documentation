@@ -10,7 +10,7 @@
 
 #if defined(RB_MSVC_WIN32) || defined(RB_MSVC_WINCE)
     #include <windows.h>
-#elif defined(RB_LINUX)
+#elif defined(RB_LINUX) || defined(RB_NETBSD)
     #include <sys/resource.h>
 #endif
 
@@ -447,7 +447,7 @@ static bool MPOS;
 #elif defined(RB_MSVC_WINCE)
     static HANDLE hThread;
     static int iPriority;
-#elif defined(RB_LINUX)
+#elif defined(RB_LINUX) || defined(RB_NETBSD)
 	static int iPriority;
 #endif
 
@@ -467,7 +467,7 @@ _RB_INLINE void MPOS_Start(void) {
         hThread = GetCurrentThread();
         iPriority = GetThreadPriority(hThread);
         if (iPriority != THREAD_PRIORITY_ERROR_RETURN) SetThreadPriority(hThread, THREAD_PRIORITY_TIME_CRITICAL);
-    #elif defined(RB_LINUX)
+    #elif defined(RB_LINUX) || defined(RB_NETBSD)
 	    iPriority = getpriority(PRIO_PROCESS, 0); //lazy to check error:p
         setpriority(PRIO_PROCESS, 0, -20);
     #endif
@@ -481,7 +481,7 @@ _RB_INLINE void MPOS_End(void) {
 		if (iPriority != THREAD_PRIORITY_ERROR_RETURN) SetThreadPriority(hThread, iPriority);
 	#elif defined(RB_MSVC_WINCE)
 		if (iPriority != THREAD_PRIORITY_ERROR_RETURN) SetThreadPriority(hThread, iPriority);
-    #elif defined(RB_LINUX)
+    #elif defined(RB_LINUX) || defined(RB_NETBSD)
 		setpriority(PRIO_PROCESS, 0, iPriority);
     #endif
 }
@@ -503,7 +503,7 @@ _RB_INLINE void MPOS_Starts(void) {
         hThread = GetCurrentThread();
         iPriority = GetThreadPriority(hThread);
         if (iPriority != THREAD_PRIORITY_ERROR_RETURN) SetThreadPriority(hThread, THREAD_PRIORITY_TIME_CRITICAL);
-    #elif defined(RB_LINUX)
+    #elif defined(RB_LINUX) || defined(RB_NETBSD)
 	    iPriority = getpriority(PRIO_PROCESS, 0); //lazy to check error:p
         setpriority(PRIO_PROCESS, 0, -20);
     #endif
@@ -517,7 +517,7 @@ _RB_INLINE void MPOS_Ends(void) {
 		if (iPriority != THREAD_PRIORITY_ERROR_RETURN) SetThreadPriority(hThread, iPriority);
 	#elif defined(RB_MSVC_WINCE)
 		if (iPriority != THREAD_PRIORITY_ERROR_RETURN) SetThreadPriority(hThread, iPriority);
-	#elif defined(RB_LINUX)
+	#elif defined(RB_LINUX) || defined(RB_NETBSD)
 		setpriority(PRIO_PROCESS, 0, iPriority);
     #endif
 }
@@ -1398,7 +1398,7 @@ RBAPI(bool) rcservo_SetServos(unsigned long channels, unsigned servono) {
 	#define ROBOARD_WOFFSET		(145L)    //PHYMEM seems to be slower than WINIO
 #elif defined   RB_MSVC_WINCE
 	#define ROBOARD_WOFFSET		(27L)
-#elif defined   RB_LINUX
+#elif defined   RB_LINUX || defined RB_NETBSD
 	#define ROBOARD_WOFFSET		(27L)
 #else //DOS
 	#define ROBOARD_WOFFSET		(25L)
