@@ -205,8 +205,10 @@ RBAPI(void) io_outpdw(unsigned short addr, unsigned long val) {
             mov eax, val
             out dx, eax
         }
-    #elif defined	RB_LINUX || defined RB_NETBSD
+    #elif defined	RB_LINUX
         outl(val, addr);
+    #elif defined   RB_NETBSD
+        outl(addr, val);
     #elif defined   RB_DJGPP
         outportl(addr, val);
     #elif defined   RB_WATCOM
@@ -270,8 +272,10 @@ RBAPI(void) io_outpw(unsigned short addr, unsigned short val) {
             mov ax, WORD PTR val
             out dx, ax
         }
-    #elif defined	RB_LINUX || defined RB_NETBSD
+    #elif defined	RB_LINUX
         outw(val, addr);
+    #elif defined   RB_NETBSD
+	outw(addr, val);
     #elif defined   RB_DJGPP
         outportw(addr, val);
     #elif defined   RB_WATCOM
@@ -327,8 +331,10 @@ RBAPI(void) io_outpb(unsigned short addr, unsigned char val) {
             mov al, val
             out dx, al
         }
-    #elif defined	RB_LINUX || defined RB_NETBSD
+    #elif defined	RB_LINUX
         outb(val, addr);
+    #elif defined   RB_NETBSD
+	outb(addr, val);
     #elif defined   RB_DJGPP
         outportb(addr, val);
     #elif defined   RB_WATCOM
