@@ -1,0 +1,43 @@
+* Cablage du drone
+
+** Schéma du drone (vue de dessus)
+
+   avant gauche    /-----\        avant droit
+                   |     |
+                   |     |
+                   |     |
+/------------------+     +------------------\
+|                                           |
+| X                                       X |
+|                                           |
+\------------------+     +------------------/
+                   |  r  |
+                   |  o  |
+                   |  b  |
+  / \              |  o  |
+   |               |  a  |
+   | y             |  r  |
+   |         . z   |  d  |
+                   |     |
+   ----->          |     |
+     x             |     |
+                   |     |
+                   |servo|
+                   \-----/
+                      X
+
+** ADC : (l'ADC numéro 0 est dans l'angle, près des PWM)
+ * ADC 0 : accel Z. Accel montée => valeur diminue
+ * ADC 1 : accel Y. Accel avance => valeur augmente
+ * ADC 2 : accel X. Accel gauche => valeur augmente
+ * ADC 3 : gyro Y. Penche gauche => valeur diminue
+ * ADC 4 : gyro X. Plonge => valeur augmente
+ * ADC 5 : inutilisé
+ * ADC 6 : gyro Z. Tourne gauche => valeur augmente
+ * ADC 7 : inutilisé
+
+** PWM : (le PWM numéro 1 est dans l'angle, près des ADC)
+ * PWM 1 : moteur avant gauche
+ * PWM 2 : moteur arrière
+ * PWM 3 : moteur avant droit
+ * PWM 4 : servo arrière
