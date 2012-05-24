@@ -1,0 +1,18 @@
+Régulateur :
+  http://fr.farnell.com/?national-semiconductor/?lm2596s-5-0-nopb/ic-dc-dc-?converter-3a/dp/1469195
+
+
+Condensateurs :
+
+  680 uF 16 V : http://fr.farnell.com/panasonic/eeufr1c681l/condensateur-radial-16v-680uf/dp/1800635
+  680 uF 25 V : http://fr.farnell.com/panasonic/eeufr1e681l/capacitor-radial-25v-680uf-20/dp/2063069
+
+  220 uF 16 V : http://fr.farnell.com/panasonic/eeufr1c221/condensateur-radial-16v-220uf/dp/1907229?Ntt=EEUFR1C221
+  330 uF 25 V : http://fr.farnell.com/panasonic/eeufr1e331/condensateur-radial-25v-330uf/dp/1800648?Ntt=eeufr1e331
+
+Diode :
+  3A 40 V : http://fr.farnell.com/nxp/pmeg4030er/diode-schottky-redr-40v-3a-sod123w/dp/1829202RL
+
+Bobine :
+  CMS : http://fr.farnell.com/multicomp/mcsdc0604-3r3mu/inductors-3-3uh-20-smd/dp/1864163
+  DIL : http://fr.farnell.com/murata-power-solutions/22r333c/inductance-0-033mh/dp/1077052 
