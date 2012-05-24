@@ -1,0 +1,6 @@
+
+Boitier		Description	Farnell
+[HS49/US]  	Crystal 16mhz :	http://fr.farnell.com/iqd-frequency-products/lf-a161g/quartz-cms-16mhz/dp/9713808
+[C0603]    	Condo 22pF : 	http://fr.farnell.com/multicomp/mcca000196/condensateur-mlcc-0603-np0-50v/dp/1759057RL
+[TQFP]		ATmega8-16AU :	http://fr.farnell.com/atmel/atmega8-16au/microcontroleur-8-bits-flash-8k/dp/1528433
+[R0805]		Résistance 10K :  http://fr.farnell.com/multicomp/mc-0-1w-0805-1-100k/resistance-0805-100k/dp/9332405RL
