@@ -17,7 +17,8 @@ La clé publique se diffuse sous forme d'une chaîne de caractère du style:
 
 C'est cette clé qu'on copie à la suite du fichier
 **/etc/dropbear/authorized_keys** sur les mmnet (ne pas écraser les clés des
-collègues au passage :-) ), ce qui permettra à la mmnet de vous authentifier sans demander de login ni de mot de passe.
+collègues au passage :-) ), ce qui permettra à la mmnet de vous authentifier
+sans demander de login ni de mot de passe.
 
 Pour générer et utiliser une paire de clés depuis windows
 ---------------------------------------------------------
