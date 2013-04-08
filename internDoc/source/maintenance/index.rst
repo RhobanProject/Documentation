@@ -10,3 +10,5 @@ Maintenance
     alimentations
     changementU
     configServo
+    connexionMMnet
+    soudureCarteCMS
